@@ -282,7 +282,7 @@ $
 	
     // load background image
    backgroundImage = new Image();
-    backgroundImage.src = 'images/levelmap.jpg';
+    backgroundImage.src = '/static/images/levelmap.jpg';
     backgroundImage.onload = function() {
    }
     backgroundImage.onerror = function() {
@@ -290,27 +290,27 @@ $
     }
 
     introImage = new Image();
-    introImage.src = 'images/intro.jpg';
+    introImage.src = '/static/images/intro.jpg';
 
 	
     // initialization of empty rocket
     oRocketImage = new Image();
-    oRocketImage.src = 'images/rocket.png';
+    oRocketImage.src = '/static/images/rocket.png';
     oRocketImage.onload = function() { }
 
     // initialization of explosion image
     oExplosionImage = new Image();
-    oExplosionImage.src = 'images/explosion.png';
+    oExplosionImage.src = '/static/images/explosion.png';
     oExplosionImage.onload = function() { }
 
     // initialization of empty enemy
     oEnemyImage = new Image();
-    oEnemyImage.src = 'images/enemy.png';
+    oEnemyImage.src = '/static/images/enemy.png';
     oEnemyImage.onload = function() { }
 
     // initialization of plane
     var oPlaneImage = new Image();
-    oPlaneImage.src = 'images/plane.png';
+    oPlaneImage.src = '/static/images/plane.png';
     oPlaneImage.onload = function() {
         plane = new Plane(canvas.width / 2, canvas.height - 100, planeW, planeH, oPlaneImage);
     }

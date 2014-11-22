@@ -1,3 +1,10 @@
-from django.contrib import admin
+# -*- coding: utf-8 -*-
 
-# Register your models here.
+from django.contrib import admin
+from area import models
+
+
+class StatisticAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(models.Statistic, StatisticAdmin)
