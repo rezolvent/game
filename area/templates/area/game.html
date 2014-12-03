@@ -8,13 +8,25 @@
 
         <!-- add styles -->
         <link href='{% static "css/main.css" %}' rel="stylesheet" type="text/css" />
-        <script src='{% static "js/jquery.js" %}'></script>
+        <script src='{% static "js/jquery-2.1.1.min.js" %}'></script>
         <script src='{% static "js/script.js" %}'></script>
+
+                <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
     </head>
     <body>
-      <script type="text/javascript" src='{% static "script.js" %}'></script>
+
+        {% include "game/menu.html" %}
+
         <div class="container">
             <canvas id="scene" width="700" height="700" tabindex="1"></canvas>
         </div>
+        <!-- Latest compiled and minified JavaScript -->
+        <script type="text/javascript" src='{% static "script.js" %}'></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     </body>
 </html>
