@@ -5,22 +5,13 @@ var canvas, ctx;
 
 // images
 
-
-
-
 var OnGUI;
-
-
-
-
 
 var backgroundImage;
 var oRocketImage;
 var oExplosionImage;
 var introImage;
 var oEnemyImage;
-
-
 
 var iBgShiftY = 9300; //10000 (level length) - 700 (canvas height)
 var bPause = true; // game pause 
@@ -45,11 +36,6 @@ var main = document.getElementById('main');
 // -------------------------------------------------------------
 
 // objects :
-
-
-
-
-
 function Plane(x, y, w, h, image) {
     this.x = x;
     this.y = y;
@@ -84,9 +70,6 @@ function Explosion(x, y, w, h, sprite, image) {
 }
 // -------------------------------------------------------------
 
- 
-
-
 // get random number between X and Y
 function getRand(x, y) {
     return Math.floor(Math.random()*y)+x;
@@ -109,7 +92,7 @@ function drawScene() {
             // draw score
             ctx.font = '40px Verdana';
             ctx.fillStyle = '#fff';
-            ctx.fillText('Finish, your score: ' + iScore * 10 + ' points', 50, 200);
+            ctx.fillText('Конец. Ваш выигрыш: ' + iScore * 10 + ' очков', 50, 200);
             return;
         }
 
@@ -127,7 +110,7 @@ function drawScene() {
         // draw plane
         ctx.drawImage(plane.image, iSprPos*plane.w, 0, plane.w, plane.h, plane.x - plane.w/2, plane.y - plane.h/2, plane.w, plane.h);
 
-        // draw rockets
+        // отрисовка ракет
         if (rockets.length > 0) {
             for (var key in rockets) {
                 if (rockets[key] != undefined) {
@@ -142,11 +125,11 @@ function drawScene() {
             }
         }
 
-        // draw explosions
+        // отрисовка взрыва
         if (explosions.length > 0) {
             for (var key in explosions) {
                 if (explosions[key] != undefined) {
-                    // display explosion sprites
+                    // показать спрайт взрыва
                     ctx.drawImage(explosions[key].image, explosions[key].sprite*explosions[key].w, 0, explosions[key].w, explosions[key].h, explosions[key].x - explosions[key].w/2, explosions[key].y - explosions[key].h/2, explosions[key].w, explosions[key].h);
                     explosions[key].sprite++;
 
@@ -176,7 +159,6 @@ function drawScene() {
         if (enemies.length > 0) {
             for (var ekey in enemies) {
                 if (enemies[ekey] != undefined) {
-
                     // collisions with rockets
                     if (rockets.length > 0) {
                         for (var key in rockets) {
@@ -220,8 +202,8 @@ function drawScene() {
         // display life and score
         ctx.font = '14px Verdana';
         ctx.fillStyle = '#fff';
-        ctx.fillText('Life: ' + iLife + ' / 100', 50, 660);
-        ctx.fillText('Score: ' + iScore * 10, 50, 680);
+        ctx.fillText('Жизни: ' + iLife + ' / 100', 50, 660);
+        ctx.fillText('Очки: ' + iScore * 10, 50, 680);
     }
 }
 
@@ -257,42 +239,25 @@ function addEnemy() {
     var interval = getRand(1000, 4000);
     enTimer = setInterval(addEnemy, interval); // loop
 }
-	
-
-
-
-
-
 
 // Main Initialization
 $
-
-
-		
 (function(){
     canvas = document.getElementById('scene');
     ctx = canvas.getContext('2d');
 
-
-	
-
-	
-	
-	
-	
     // load background image
    backgroundImage = new Image();
     backgroundImage.src = '/static/images/levelmap.jpg';
     backgroundImage.onload = function() {
    }
     backgroundImage.onerror = function() {
-        console.log('Error loading the background image.');
+        console.log('Ошибка при загрузке фонового изображения.');
     }
 
     introImage = new Image();
     introImage.src = '/static/images/intro.jpg';
 
-	
     // initialization of empty rocket
     oRocketImage = new Image();
     oRocketImage.src = '/static/images/rocket.png';
@@ -360,7 +325,4 @@ $
     introImage.onload = function() {
         displayIntro(); // Display intro once
     }
-	
-
-	
 });
