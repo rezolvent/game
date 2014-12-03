@@ -4,7 +4,7 @@ from django.contrib import admin
 from area import models
 
 
-class StatisticAdmin(admin.ModelAdmin):
+class GamerAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(models.Statistic, StatisticAdmin)
+admin.site.register(models.Gamer, GamerAdmin)

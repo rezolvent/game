@@ -13,7 +13,7 @@ var oExplosionImage;
 var introImage;
 var oEnemyImage;
 
-var iBgShiftY = 9300; //10000 (level length) - 700 (canvas height)
+var iBgShiftY = 930; //10000 (level length) - 700 (canvas height)
 var bPause = true; // game pause 
 var plane = null; // plane object
 var rockets = []; // array of rockets
@@ -93,6 +93,16 @@ function drawScene() {
             ctx.font = '40px Verdana';
             ctx.fillStyle = '#fff';
             ctx.fillText('Конец. Ваш выигрыш: ' + iScore * 10 + ' очков', 50, 200);
+
+            $.ajax({
+                url: '{% url "area" pk=user.id %}',
+                type: 'POST',
+                data:{
+                    'data': iScore * 10,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                }
+              }).done(function(data) {
+              });
             return;
         }
 
