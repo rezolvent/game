@@ -41,7 +41,7 @@ INSTALLED_APPS = (
 
     'area',
     'game',
-    'south',
+    #'south',
 )
 
 MIDDLEWARE_CLASSES = (
